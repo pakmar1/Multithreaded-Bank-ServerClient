@@ -1,0 +1,120 @@
+Average transaction time per client:0.000047
+******************Server Side***************
+pnakmar@pnakmar:~/Desktop/OS/socket$ make compile
+gcc server11.cpp -o server11.out -lpthread
+gcc client7.cpp -o client7.out
+pnakmar@pnakmar:~/Desktop/OS/socket$ make runserver
+./server11.out 8087
+Client 1 is connected
+The request from client: 101 w 1001
+-------------------------------------------
+Original balance:1000
+Insufficient balance,can't withdraw
+The request from client: 102 d 5
+-------------------------------------------
+Original balance:2000
+Account 102 is locked for deposit operation
+Account 102 is unlocked now
+Aks deposited 5 New balance:2005
+-------------------------------------------
+The request from client: 103 w 3
+-------------------------------------------
+Original balance:3000
+Account 103 is locked for withdraw operation
+Account 103 is unlocked now
+Bob withdrew 3 New balance:2997
+-------------------------------------------
+The request from client: 104 d 10
+-------------------------------------------
+Original balance:3487
+Account 104 is locked for deposit operation
+Account 104 is unlocked now
+Alex deposited 10 New balance:3497
+-------------------------------------------
+The request from client: 105 d 2
+-------------------------------------------
+Original balance:3209
+Account 105 is locked for deposit operation
+Account 105 is unlocked now
+Ron deposited 2 New balance:3211
+-------------------------------------------
+The request from client: 101 d 10
+-------------------------------------------
+Original balance:1000
+Account 101 is locked for deposit operation
+Account 101 is unlocked now
+Peter deposited 10 New balance:1010
+-------------------------------------------
+The request from client: 103 w 500
+-------------------------------------------
+Original balance:2997
+Account 103 is locked for withdraw operation
+Account 103 is unlocked now
+Bob withdrew 500 New balance:2497
+-------------------------------------------
+The request from client: 103 d 200
+-------------------------------------------
+Original balance:2497
+Account 103 is locked for deposit operation
+Account 103 is unlocked now
+Bob deposited 200 New balance:2697
+-------------------------------------------
+The request from client: 102 d 100
+-------------------------------------------
+Original balance:2005
+Account 102 is locked for deposit operation
+Account 102 is unlocked now
+Aks deposited 100 New balance:2105
+-------------------------------------------
+The request from client: 104 w 20
+-------------------------------------------
+Original balance:3497
+Account 104 is locked for withdraw operation
+Account 104 is unlocked now
+Alex withdrew 20 New balance:3477
+-------------------------------------------
+The request from client: 105 d 100
+-------------------------------------------
+Original balance:3211
+Account 105 is locked for deposit operation
+Account 105 is unlocked now
+Ron deposited 100 New balance:3311
+-------------------------------------------
+
+******************Client Side***************
+pnakmar@pnakmar:~/Desktop/OS/socket$ make runclient
+./client7.out 127.0.0.1 8087 0.8 Transactions.txt
+The transaction request:10 101 w 1001
+
+Server processsed transaction successfully
+The transaction request:20 102 d 5
+
+Server processsed transaction successfully
+The transaction request:30 103 w 3
+
+Server processsed transaction successfully
+The transaction request:40 104 d 10
+
+Server processsed transaction successfully
+The transaction request:50 105 d 2
+
+Server processsed transaction successfully
+The transaction request:60 101 d 10
+
+Server processsed transaction successfully
+The transaction request:70 103 w 500
+
+Server processsed transaction successfully
+The transaction request:80 103 d 200
+
+Server processsed transaction successfully
+The transaction request:90 102 d 100
+
+Server processsed transaction successfully
+The transaction request:100 104 w 20
+
+Server processsed transaction successfully
+The transaction request:101 105 d 100
+Server processsed transaction successfully
+Avg time per transaction per client is:0.000047
+
